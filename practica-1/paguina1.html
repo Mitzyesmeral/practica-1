@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagina 1</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="estilos.css">
+
+  <style>
+            body {
+            color: #000000;
+            text-align: center;
+            background-image: url(/descargar-fondo.jpg);
+            padding: 50px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;}
+nav {
+  position: relative;
+  width: 520px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.512);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+}
+
+nav a {
+  position: relative;
+  width: 130px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  font-weight: 500;
+  color: #000000;
+  text-decoration: none;
+  z-index: 1;
+}
+
+nav span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 130px;
+  height: 100%;
+  background: rgba(43, 62, 165, 0.671);
+  border-radius: 8px;
+  transition: 0.5s;
+}
+
+nav a:nth-child(1):hover ~ span {
+  left: 0;
+}
+
+nav a:nth-child(2):hover ~ span {
+  left: 130px;
+}
+
+nav a:nth-child(3):hover ~ span {
+  left: 260px;
+}
+
+nav a:nth-child(4):hover ~ span {
+  left: 390px;
+}
+  </style>
+</head>
+
+<body>
+    <h1>Formulario</h1>
+
+
+  <nav>
+    <a href="INicio.html">Inicio de cesión</a>
+    <a href="paguina1.html">casa.inicio</a>
+    <a href="ReguisTRO.html">Reguistrados</a>
+    <a href="dATAusuario.html">Datos de Usuario</a>
+    <span></span>
+  </nav>
+
+    <div class="mb-3" class="d-flex align-items-center gap-2">
+    <label for="from-label mb-0" form="titulo">
+        <h4 class="fw-bold">materia</h4>
+      <input type="text" class="form-control" id="ttulo" >
+      </label>
+
+
+  <div class="mb-3 d-flex align-items-center gap-2">
+  <label class="form-label mb-0" for="titulo">
+    <h4 class="fw-bold mb-0">Titulo</h4>
+  </label>
+
+  <input type="text" class="form-control" 
+    id="titulo" placeholder="Nombre de tu tarea aqui">
+
+  <input type="date" class="form-control" id="fecha">
+
+  <button type="button" class="btn btn-primary">
+    Guardar
+  </button>
+</div>
+
+<div class="row mt-3">
+  <div class="col">
+    <div class="border rounded p-3">
+      <h1>¿Qué hare?</h1>
+      <input type="text" class="form-control" id="ttulo" >
+
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="border rounded p-3">
+      <h1>Apuntes:</h1>
+      <input type="text" class="form-control" id="ttulo" >
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
