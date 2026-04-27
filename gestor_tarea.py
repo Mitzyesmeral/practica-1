@@ -3,13 +3,6 @@ from pymongo.errors import DuplicateKeyError, ConnectionFailure
 from bson.objectid import ObjectId
 from datetime import datetime, timedelta
 from typing import Optional, List, Dict
-import os
-
-
-def main():
-    print("Hello from practica1!")
-    
-
 
 class GestorTareas:
     def __init__(self, uri: str = 'mongodb://localhost:27017/'):
@@ -154,7 +147,6 @@ class GestorTareas:
             
             if not estadisticas["ultima_actividad"] or r['fecha_ultima'] > estadisticas["ultima_actividad"]:
                 estadisticas["ultima_actividad"] = r['fecha_ultima']
-        
         return estadisticas
     
     def buscar_tareas(self, texto: str) -> List[Dict]:
@@ -193,59 +185,3 @@ class GestorTareas:
         if self.cliente:
             self.cliente.close()
             print("🔌 Conexión cerrada")
-
-# Ejemplo de uso
-def ejemplo_uso():
-    # Inicializar gestor
-    gestor = GestorTareas()
-    
-    # Crear usuario
-    usuario_id = gestor.crear_usuario("Ana García", "ana@email.com")
-    print(f"Usuario creado con ID: {usuario_id}")
-    
-    if usuario_id:
-        # Crear tareas
-        tarea1 = gestor.crear_tarea(
-            usuario_id, 
-            "Aprender MongoDB", 
-            "Completar tutorial de PyMongo",
-            datetime.now() + timedelta(days=3)
-        )
-        print(f"Tarea creada: {tarea1}")
-        
-        tarea2 = gestor.crear_tarea(
-            usuario_id,
-            "Hacer ejercicio",
-            "Ir al gimnasio 3 veces esta semana"
-        )
-        
-        # Agregar etiqueta
-        gestor.agregar_etiqueta(tarea1, "programación")
-        gestor.agregar_etiqueta(tarea1, "estudio")
-        
-        # Listar tareas
-        tareas = gestor.obtener_tareas_usuario(usuario_id)
-        print(f"\nTareas de {usuario_id}:")
-        for t in tareas:
-            print(f"  - {t['titulo']} [{t['estado']}]")
-        
-        # Actualizar estado
-        gestor.actualizar_estado_tarea(tarea1, "en_progreso")
-        
-        # Estadísticas
-        stats = gestor.estadisticas_usuario(usuario_id)
-        print(f"\nEstadísticas: {stats}")
-        
-        # Tareas urgentes
-        urgentes = gestor.tareas_urgentes(72)
-        print(f"\nTareas urgentes próximos 3 días: {len(urgentes)}")
-    
-    # Cerrar conexión
-    gestor.cerrar_conexion()
-
-if __name__ == "__main__":
-    ejemplo_uso()
-
-
-if __name__ == "__main__":
-    main()
