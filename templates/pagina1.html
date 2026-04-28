@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página 1</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<div class="alert alert-success" role="alert">
+  {{ mensaje }}
+</div>
+
+<body class="container py-4">
+  <div class="mb-3 d-flex align-items-center gap-2">
+    <label class="form-label mb-0 fw-bold" for="materia">Materia</label>
+    <input type="text" class="form-control" id="materia">
+  </div>
+  <div class="mb-3 d-flex align-items-center gap-2">
+    <label class="form-label mb-0 fw-bold" for="titulo">Título</label>
+    <input type="text" class="form-control" id="titulo" placeholder="Nombre de tu tarea aquí">
+    <input type="date" class="form-control" id="fecha">
+    <button type="button" class="btn btn-primary">Guardar</button>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <div class="border rounded p-3">
+        <h4>¿Qué haré?</h4>
+        <input type="text" class="form-control" id="que-hare">
+      </div>
+    </div>
+<div class="col">
+      <div class="border rounded p-3">
+        <h4>Apuntes:</h4>
+        <input type="text" class="form-control" id="apuntes">
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
