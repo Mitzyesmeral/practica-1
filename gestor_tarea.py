@@ -185,3 +185,4 @@ class GestorTareas:
         if self.cliente:
             self.cliente.close()
             print("🔌 Conexión cerrada")
+            
