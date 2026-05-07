@@ -1,55 +1,92 @@
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesión</title>
+{% extends "base.html" %}
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-</head>
-
-"{% extends \"base.html\" %}"
-{% block title %} Inicio de Sesíón {% endblock %}
-
-{% block content %}
-
-<form action=\>
-
-Action: file_editor create /tmp/practica-1/templates/index.html --file-text "{% extends \"base.html\" %}
-{% block title %}Inicio de sesión{% endblock %}
-
-{% block content %}
-<h1 class=\"fw-bold\">¡Inicio de sesión!</h1>
-
-<form action=\"{{ url_for('login') }}\" method=\"post\">
-    <div class=\"mb-3\">
-        <label for=\"email\" class=\"form-label\"><h4 class=\"fw-bold\">Email</h4></label>
-        <input type=\"email\" class=\"form-control\" id=\"email\" name=\"email\" placeholder=\"EMAIL\" required>
-        <div class=\"form-text fw-bold\">Sus datos están 100% protegidos.</div>
-    </div>
-
-    <div class=\"mb-3\">
-        <label for=\"password\" class=\"form-label\"><h4 class=\"fw-bold\">Contraseña</h4></label>
-        <input type=\"password\" class=\"form-control\" id=\"password\" name=\"password\" placeholder=\"(CONTRASEÑA)\">
-    </div>
-
-    <div class=\"mb-3 form-check\">
-        <input type=\"checkbox\" class=\"form-check-input\" id=\"recordar\">
-        <label class=\"form-check-label fw-bold\" for=\"recordar\">Recuérdame</label>
-    </div>
-
-    <div class=\"d-grid gap-2\">
-        <button type=\"submit\" class=\"btn btn-primary\"><h3 class=\"fw-bold mb-0\">Iniciar</h3></button>
-    </div>
-
-    <a href=\"{{ url_for('registro') }}\" class=\"btn btn-link mt-2 d-block\">
-        <h5 class=\"fw-bold mb-0\">¿Aún no tienes cuenta?</h5>
-    </a>
-</form>
+{% block title %}
+Inicio de sesión
 {% endblock %}
 
+{% block content %}
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<style>
+    .login-container{
+        background-image: url("{{url_for('static/descargar-fondo.jpg')}}"); 
+        background-size: cover; 
+        background-position: center;
+        min-height:100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        margin: 0;
+    }
+
+    .recuadro {
+            border: 2px solid #333;
+            padding: 30px;              
+            margin: 20px;              
+            background-color:rgba(255, 255, 255, 0.41);  
+            width: 300px;
+            max-width: 400%;  
+            border-radius: 15px;       
+            text-align: center;  
+            font-family: Arial, sans-serif;
+            box-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+        }
+</style>
+
+<div class="login-container">
+    <h1 class="fw-bold mb-4">Inicio de cesion</h1>
+
+<form action="{{ url_for('login') }}" method="post" class="recuadro">
+    <div class="mb-3 text-start">
+        <label for="EMAIL" class="form-label">
+            <h4 class="fw-bold">email</h4>
+        </label>
+
+        <input type="email"
+               class="form-control"
+               id="email"
+               name="email"
+               placeholder="correo@mitzy.com"
+               required>
+    <div class="form-text fw-bold text-success">
+        <i class="fa-solid fa-shield-halved">
+        </i>Sus datos están 100% protegidos.
+    </div>
+    </div>
+
+    <div class="mb-3 text-start">
+        <label for="password" class="form-label">
+            <h4 class="fw-bold">Contraseña</h4>
+        </label>
+
+        <input type="password"
+               class="form-control"
+               id="password"
+               name="password"
+               placeholder="*******"
+               required>
+    </div>
+
+        <div class="mb-3 form-check text-start">
+        <input type="checkbox"
+               class="form-check-input"
+               id="recordar"
+               name="recordar">
+        <label class="form-check-label fw-bold" for="recordar">
+            Recuérdame
+        </label>
+        </div>
+
+    <div class="d-grid gap-2">
+        <button type="submit" class="brn btn-primary">
+            <h3 class="fw-bold mb-0">Iniciar sesión</h3>
+        </button>
+    </div>
+
+<a href="{{ url_for('registrar') }}" class="btn btn-link mt-2 d-block">
+    <h5 class="fw-bold mb-0">¿No tienes cuenta?</h5>
+</a>
+</from>
+</div>
+
+{% endblock %}

@@ -1,21 +1,56 @@
-<html lang=\"es\">
+<html lang="es">
 <head>
-    <meta charset=\"UTF-8\">
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Práctica 1{% endblock %}</title>
     <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css\" rel=\"stylesheet\">
     <link href=\"https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap\" rel=\"stylesheet\">
     <link rel=\"stylesheet\" href=\"{{ url_for('static', filename='css/estilos.css') }}\">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+DE+SAS:wght@100..400&display=swap" rel="stylesheet">
 </head>
+
+        <style>
+    body {
+        background-image: url('static/descargar-fondo.jpg'); 
+        background-size: cover; 
+        background-position: center;
+        margin: 0;
+        diaplay: flet;
+        justify-content:center;
+        height: 300px;
+        width: 100%;"}
+
+        .recuadro {
+            border: 2px solid #333;
+            padding: 30px;              
+            margin: 20px;              
+            background-color:rgba(249, 249, 249, 0.28);  
+            width: 300px;
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 350px;    
+            border-radius: 15px;       
+            text-align: center;  
+            font-family: Arial, sans-serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2{
+        font-family: "Playwrite DE SAS", cursive;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-weight: 400;
+        background: linear-gradient(90deg,rgb(24, 5, 0),rgb(99, 102, 192));
+    }
+    </style>
+</head>
+
 <body>
-
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% for category, msg in messages %}
-            <div class=\"alert alert-{{ category }} alert-flash\" role=\"alert\">{{ msg }}</div>
-        {% endfor %}
-    {% endwith %}
-
-    {% block content %}{% endblock %}
+    <div class="recuadro">
+        <h2>Vienbenidos</h2>
+            <button type="button" class="btn btn-darck btn-custom">crear nuevo formulario</button>
+            <button type="button" class="btn btn-darck btn-custom">Formularios ya creados</button> 
+    </div>
 
     <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js\"></script>
 </body>
