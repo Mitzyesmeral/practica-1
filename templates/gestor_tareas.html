@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tareas</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f9; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h2 { color: #333; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; color: white; }
+        .btn-add { background-color: #28a745; width: 100%; font-size: 16px; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 30px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f8f9fa; }
+        .btn-edit { background-color: #007bff; margin-right: 5px; }
+        .btn-delete { background-color: #dc3545; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Añadir Nueva Tarea</h2>
+    <form>
+        <div class="form-group">
+            <label for="nombre">Nombre de la Tarea:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej. Comprar leche" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="estado">Estado:</label>
+            <select id="estado" name="estado">
+                <option value="pendiente">Pendiente</option>
+                <option value="en_progreso">En Progreso</option>
+                <option value="completada">Completada</option>
+            </select>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+            <div class="form-group" style="flex: 1;">
+                <label for="inicio">Fecha de Inicio:</label>
+                <input type="date" id="inicio" name="inicio">
+            </div>
+            <div class="form-group" style="flex: 1;">
+                <label for="fin">Fecha de Fin:</label>
+                <input type="date" id="fin" name="fin">
+            </div>
+        </div>
+
+        <button type="submit" class="btn-add">Añadir Tarea</button>
+    </form>
+
+    <hr>
+
+    <h2>Listado y Edición</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Tarea</th>
+                <th>Estado</th>
+                <th>Inicio</th>
+                <th>Fin</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" value="Diseñar base de datos"></td>
+                <td>
+                    <select>
+                        <option value="pendiente">Pendiente</option>
+                        <option selected value="en_progreso">En Progreso</option>
+                        <option value="completada">Completada</option>
+                    </select>
+                </td>
+                <td>01/05/2026</td>
+                <td><input type="date" value="2026-05-15"></td>
+                <td>
+                    <button class="btn-edit">Guardar</button>
+                    <button class="btn-delete">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+{% endblock %}
